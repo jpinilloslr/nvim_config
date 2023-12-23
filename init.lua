@@ -271,9 +271,9 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Buffer keymaps
-vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-a>', ':bprevious<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-d>', ':bnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-q>', ':bdelete<CR>', { noremap = true, silent = true })
 
 -- NvimTree
 vim.keymap.set('n', '<leader>x', ':NvimTreeToggle<CR>', { desc = 'File e[x]plorer' })
