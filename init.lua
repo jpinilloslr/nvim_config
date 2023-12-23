@@ -613,6 +613,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       -- Use Prettier for these filetypes
       local project_prettier = vim.fn.getcwd() .. "/node_modules/.bin/prettier"
       local prettier_executable = vim.fn.executable(project_prettier) == 1 and project_prettier or "prettier"
+
       print("Using prettier: " .. prettier_executable)
       local prettier_command = prettier_executable .. " --stdin-filepath " .. vim.fn.shellescape(vim.fn.expand("%"))
       local result = vim.fn.system(prettier_command, vim.api.nvim_buf_get_lines(bufnr, 0, -1, false))
@@ -627,6 +628,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         -- Print error if Prettier was not successful
         print("Prettier formatting failed: " .. vim.fn.trim(result))
       end
+    else
       -- Use LSP formatting for other filetypes
       vim.lsp.buf.format({
         bufnr = bufnr,
