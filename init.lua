@@ -621,7 +621,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     local filetype = vim.bo.filetype
 
     -- List of filetypes for which to use Prettier
-    local prettier_filetypes = { "javascript", "typescript", "css", "html" }
+    local prettier_filetypes = {
+      "javascript",
+      "typescript",
+      "css",
+      "scss",
+      "less",
+      "html",
+      "json",
+      "yaml",
+      "markdown",
+      "typescriptreact",
+      "javascriptreact",
+      "graphql"
+    }
 
     if vim.tbl_contains(prettier_filetypes, filetype) then
       -- Use Prettier for these filetypes
