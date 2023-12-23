@@ -212,6 +212,19 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    -- Tree explorer
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  }
+
 }, {})
 
 -- [[ Setting options ]]
@@ -256,6 +269,14 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Buffer keymaps
+vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { noremap = true, silent = true })
+
+-- NvimTree
+vim.keymap.set('n', '<leader>x', ':NvimTreeToggle<CR>', { desc = 'File e[x]plorer' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -349,9 +370,9 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
-vim.keymap.set('n', '<leader>sc', require('telescope.builtin').git_commits, { desc = 'Search Git [C]ommits' })
-vim.keymap.set('n', '<leader>sb', require('telescope.builtin').git_branches, { desc = 'Search Git [B]ranches' })
-vim.keymap.set('n', '<leader>st', require('telescope.builtin').git_status, { desc = 'Search Git [S]tatus' })
+vim.keymap.set('n', '<leader>sc', require('telescope.builtin').git_commits, { desc = '[S]earch Git [C]ommits' })
+vim.keymap.set('n', '<leader>sb', require('telescope.builtin').git_branches, { desc = '[S]earch Git [B]ranches' })
+vim.keymap.set('n', '<leader>st', require('telescope.builtin').git_status, { desc = '[S]earch Git S[t]atus' })
 
 -- [[ Configure Treesitter ]]
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
@@ -583,17 +604,22 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
     if vim.tbl_contains(prettier_filetypes, filetype) then
       -- Use Prettier for these filetypes
-      local cursor_pos = vim.api.nvim_win_get_cursor(0)
-      local prettier_command = "prettier --stdin-filepath " .. vim.fn.shellescape(vim.fn.expand("%"))
+      local project_prettier = vim.fn.getcwd() .. "/node_modules/.bin/prettier"
+      local prettier_executable = vim.fn.executable(project_prettier) == 1 and project_prettier or "prettier"
+      print("Using prettier: " .. prettier_executable)
+      local prettier_command = prettier_executable .. " --stdin-filepath " .. vim.fn.shellescape(vim.fn.expand("%"))
       local result = vim.fn.system(prettier_command, vim.api.nvim_buf_get_lines(bufnr, 0, -1, false))
       local success = vim.v.shell_error == 0
 
       -- Replace buffer content only if Prettier was successful
       if success then
+        local cursor_pos = vim.api.nvim_win_get_cursor(0)
         vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, vim.split(result, "\n"))
+        vim.api.nvim_win_set_cursor(0, cursor_pos)
+      else
+        -- Print error if Prettier was not successful
+        print("Prettier formatting failed: " .. vim.fn.trim(result))
       end
-      vim.api.nvim_win_set_cursor(0, cursor_pos)
-    else
       -- Use LSP formatting for other filetypes
       vim.lsp.buf.format({
         bufnr = bufnr,
