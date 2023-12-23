@@ -649,8 +649,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       -- Replace buffer content only if Prettier was successful
       if success then
         local cursor_pos = vim.api.nvim_win_get_cursor(0)
-        vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, vim.split(result, "\n"))
-        vim.api.nvim_win_set_cursor(0, cursor_pos)
+        local lines = vim.split(vim.trim(result), "\n")
+        vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+        pcall(vim.api.nvim_win_set_cursor, 0, cursor_pos)
       else
         -- Print error if Prettier was not successful
         print("Prettier formatting failed: " .. vim.fn.trim(result))
