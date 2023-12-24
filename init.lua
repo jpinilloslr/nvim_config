@@ -278,8 +278,8 @@ vim.keymap.set('n', '<A-q>', ':bdelete<CR>', { noremap = true, silent = true })
 -- Terminal keymaps
 vim.keymap.set('n', '<leader>tv', ':vsplit | terminal<CR>', { desc = '[T]erminal in [V]ertical Split' })
 vim.keymap.set('n', '<leader>th', ':split | terminal<CR>', { desc = '[T]erminal in [H]orizontal Split' })
-vim.keymap.set('n', '<leader>to', ':terminal<CR>', { desc = '[T]erminal' })
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>t', ':terminal<CR>', { desc = '[T]erminal' })
+vim.keymap.set('t', '<C-n>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- NvimTree
 vim.keymap.set('n', '<leader>x', ':NvimTreeToggle<CR>', { desc = 'File e[x]plorer' })
