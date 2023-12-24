@@ -244,8 +244,8 @@ vim.wo.number = true
 -- Sync clipboard between OS and Neovim.
 vim.o.clipboard = 'unnamedplus'
 
--- Enable break indent
-vim.o.breakindent = true
+-- No line wrap
+vim.o.wrap = false
 
 -- Save undo history
 vim.o.undofile = true
