@@ -271,8 +271,8 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Buffer keymaps
-vim.keymap.set('n', '<M-a>', ':bprevious<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<M-d>', ':bnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-a>', ':bprevious<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-d>', ':bnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<A-q>', ':bdelete<CR>', { noremap = true, silent = true })
 
 -- Terminal keymaps
