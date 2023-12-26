@@ -1,12 +1,12 @@
 return {
-  "nvim-tree/nvim-tree.lua",
-  version = "*",
+  'nvim-tree/nvim-tree.lua',
+  version = '*',
   lazy = false,
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    'nvim-tree/nvim-web-devicons',
   },
   config = function()
-    require("nvim-tree").setup {
+    require('nvim-tree').setup {
       actions = {
         open_file = {
           quit_on_open = true
@@ -14,6 +14,6 @@ return {
       }
     }
 
-    vim.keymap.set('n', '<leader>x', ':NvimTreeToggle<CR>', { desc = 'File e[x]plorer' })
+    vim.keymap.set('n', '<A-e>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
   end,
 }
