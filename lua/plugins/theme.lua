@@ -4,9 +4,14 @@ return {
   priority = 1000,
   opts = {},
   config = function()
-    vim.cmd.colorscheme 'tokyonight-storm'
+    vim.cmd.colorscheme 'tokyonight'
     require('tokyonight').setup({
       style = 'storm',
+     transparent = true,
+      styles = {
+        sidebars = 'transparent',
+        floats = 'transparent'
+      }
     })
   end,
 }
