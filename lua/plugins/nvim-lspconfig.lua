@@ -6,7 +6,16 @@ return {
     'williamboman/mason-lspconfig.nvim',
 
     -- Useful status updates for LSP
-    { 'j-hui/fidget.nvim', opts = {} },
+    {
+      'j-hui/fidget.nvim',
+      opts = {
+        notification = {
+          window = {
+            winblend = 0
+          }
+        }
+      }
+    },
 
     -- Provides additional settings and completions for Neovim's Lua API
     'folke/neodev.nvim',
