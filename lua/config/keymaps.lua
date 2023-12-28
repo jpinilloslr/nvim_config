@@ -17,9 +17,11 @@ vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { noremap = true, sil
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
 
 -- Terminal
-vim.keymap.set('n', '<leader>tv', ':vsplit | terminal<CR>', { desc = '[T]erminal in [V]ertical Split' })
-vim.keymap.set('n', '<leader>th', ':split | terminal<CR>', { desc = '[T]erminal in [H]orizontal Split' })
-vim.keymap.set('n', '<leader>t', ':terminal<CR>', { desc = '[T]erminal' })
+vim.keymap.set('n', '<leader>tv', ':vsplit | terminal<CR> | <C-w>L',
+  { desc = '[T]erminal in [V]ertical Split' })
+vim.keymap.set('n', '<leader>th', ':split | terminal<CR> | <C-w>J',
+  { desc = '[T]erminal in [H]orizontal Split' })
+vim.keymap.set('n', '<leader>tt', ':terminal<CR>', { desc = '[T]erminal' })
 vim.keymap.set('t', '<C-n>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- Diagnostic
