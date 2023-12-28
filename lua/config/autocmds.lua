@@ -34,14 +34,26 @@ vim.api.nvim_create_autocmd('BufWritePre', {
         vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
         pcall(vim.api.nvim_win_set_cursor, 0, cursor_pos)
       else
-        print('Prettier formatting failed: ' .. vim.fn.trim(result))
+        vim.notify(vim.fn.trim(result), vim.log.levels.ERROR, {
+          title = 'Prettier formatting error'
+        })
       end
     else
-      -- Use LSP formatting for other filetypes
-      vim.lsp.buf.format({
-        bufnr = bufnr,
-        timeout_ms = 1000
-      })
+      local lsp_attached = false
+      for _, client in pairs(vim.lsp.get_active_clients()) do
+        if client.attached_buffers[bufnr] then
+          lsp_attached = true
+          break
+        end
+      end
+
+      -- Use LSP formatting for other filetypes if available
+      if lsp_attached then
+        vim.lsp.buf.format({
+          bufnr = bufnr,
+          timeout_ms = 1000
+        })
+      end
     end
   end,
 })
