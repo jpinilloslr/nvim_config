@@ -1,5 +1,4 @@
 return {
-  -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -10,6 +9,7 @@ return {
     -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
     vim.defer_fn(function()
       require('nvim-treesitter.configs').setup {
+
         -- Languages installed for treesitter
         ensure_installed = {
           'c',
@@ -27,7 +27,6 @@ return {
           'graphql'
         },
 
-        -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
         auto_install = false,
 
         highlight = { enable = true },
@@ -44,36 +43,50 @@ return {
         textobjects = {
           select = {
             enable = true,
-            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = true,
             keymaps = {
-              -- You can use the capture groups defined in textobjects.scm
               ['aa'] = '@parameter.outer',
               ['ia'] = '@parameter.inner',
               ['af'] = '@function.outer',
               ['if'] = '@function.inner',
               ['ac'] = '@class.outer',
               ['ic'] = '@class.inner',
+              ['ar'] = '@parameter.outer',
+              ['ab'] = '@block.outer',
+              ['ib'] = '@block.inner',
             },
           },
           move = {
             enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
+            set_jumps = true,
             goto_next_start = {
-              [']m'] = '@function.outer',
+              [']f'] = '@function.outer',
+              [']o'] = '@conditional.outer',
               [']]'] = '@class.outer',
+              [']l'] = '@loop.*',
             },
             goto_next_end = {
-              [']M'] = '@function.outer',
+              [']F'] = '@function.outer',
               [']['] = '@class.outer',
             },
             goto_previous_start = {
-              ['[m'] = '@function.outer',
+              ['[f'] = '@function.outer',
+              ['[o'] = '@conditional.outer',
               ['[['] = '@class.outer',
+              ['[l'] = '@loop.*',
             },
             goto_previous_end = {
-              ['[M'] = '@function.outer',
+              ['[F'] = '@function.outer',
               ['[]'] = '@class.outer',
             },
+            goto_next = {
+              [']a'] = '@parameter.outer',
+              [']b'] = '@block.inner',
+            },
+            goto_previous = {
+              ['[a'] = '@parameter.outer',
+              ['[b'] = '@block.inner',
+            }
           },
           swap = {
             enable = true,
