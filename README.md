@@ -34,7 +34,21 @@ ln -s ~/.local/nvim/bin/nvim /usr/local/bin/nvim
 git clone https://github.com/jpinilloslr/nvim_config.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
-## Install Nerd Fonts
+## Additional tools
+
+**Install ripgrep for Telescope**
+
+```bash
+sudo apt install ripgrep
+```
+
+**Install wl-clipboard for Wayland clipboard synchronization.**
+
+```bash
+sudo apt install wl-clipboard
+```
+
+**Install Nerd Fonts for gryphs and icons**
 
 ```bash
 curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/DroidSansMono.zip -o DroidSansMono.zip
