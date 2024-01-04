@@ -78,6 +78,7 @@ return {
           diagnostics = { disable = { 'missing-fields' } },
         },
       },
+      pyright = {},
     }
 
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
