@@ -74,6 +74,7 @@ return {
         },
       },
       pyright = {},
+      angularls = {},
     }
 
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
