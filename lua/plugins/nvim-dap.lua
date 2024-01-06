@@ -9,10 +9,10 @@ return {
       vim.keymap.set('n', '<F10>', dap.step_over)
       vim.keymap.set('n', '<F11>', dap.step_into)
       vim.keymap.set('n', '<F12>', dap.step_out)
-      vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
-      vim.keymap.set('n', '<leader>B', function()
+      vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = '[D]ebug Toggle [B]reakpoint' })
+      vim.keymap.set('n', '<leader>dB', function()
         dap.set_breakpoint(vim.fn.input('Breakpoint condition: '))
-      end, { desc = 'Toggle breakpoint with condition' })
+      end, { desc = '[D]ebug Toggle [B]reakpoint With Condition' })
 
       local js_based_languages = { 'typescript', 'javascript', 'typescriptreact' }
 
@@ -60,7 +60,7 @@ return {
         dapui.close({})
       end
 
-      vim.keymap.set('n', '<leader>ui', require 'dapui'.toggle)
+      vim.keymap.set('n', '<leader>du', require 'dapui'.toggle, { desc = '[D]ebug Toggle [U]I' })
     end
   },
   {
