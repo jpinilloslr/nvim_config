@@ -53,6 +53,13 @@ return {
       end, { desc = 'Format current buffer with LSP' })
     end
 
+    -- rounded borders for lsp hover documentation
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+      vim.lsp.handlers.hover, {
+        border = "rounded"
+      }
+    )
+
     -- mason-lspconfig requires that these setup functions are called in this order
     -- before setting up the servers.
     require('mason').setup()

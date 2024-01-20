@@ -25,6 +25,12 @@ vim.keymap.set('n', '<leader>tt', ':terminal<CR>', { desc = '[T]erminal' })
 vim.keymap.set('t', '<C-n>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- Diagnostic
+-- rounded borders for diagnostic float
+vim.diagnostic.config({
+  float = {
+    border = "rounded"
+  }
+})
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
