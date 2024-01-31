@@ -48,7 +48,7 @@ sudo apt install ripgrep
 sudo apt install wl-clipboard
 ```
 
-**Install Nerd Fonts for gryphs and icons**
+**Install Nerd Fonts for icons**
 
 ```bash
 curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/DroidSansMono.zip -o DroidSansMono.zip
