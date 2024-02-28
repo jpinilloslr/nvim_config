@@ -1,5 +1,7 @@
 return {
   'neovim/nvim-lspconfig',
+  -- Install all required external dependencies
+  build = { 'npm install -g vscode-langservers-extracted' },
   dependencies = {
     -- Automatically install LSPs to stdpath for neovim
     'williamboman/mason.nvim',
@@ -80,8 +82,10 @@ return {
           diagnostics = { disable = { 'missing-fields' } },
         },
       },
+      csharp_ls = {}, -- requires `dotnet-sdk` to be installed
       pyright = {},
       angularls = {},
+      cssls = {} -- requires `npm i -g vscode-langservers-extracted` to be installed
     }
 
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
