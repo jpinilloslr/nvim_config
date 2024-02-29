@@ -1,7 +1,23 @@
 -- [[ Auto format on save ]]
+_G.autoformat_enabled = true
+
+-- Function to toggle autoformatting
+function _G.toggle_autoformat()
+  _G.autoformat_enabled = not _G.autoformat_enabled
+  local status = _G.autoformat_enabled and "enabled" or "disabled"
+  vim.notify("Autoformatting is " .. status, vim.log.levels.INFO, { title = "Toggle Autoformat" })
+end
+
+vim.api.nvim_set_keymap('n', '<Leader>tf', ':lua toggle_autoformat()<CR>',
+  { noremap = true, silent = true, desc = '[T]oogle Auto[f]ormat' })
+
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*',
   callback = function()
+    if not _G.autoformat_enabled then
+      return
+    end
+
     local bufnr = vim.api.nvim_get_current_buf()
     local filetype = vim.bo.filetype
 
