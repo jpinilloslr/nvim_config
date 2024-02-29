@@ -39,16 +39,16 @@ vim.api.nvim_create_autocmd('BufWritePre', {
         })
       end
     else
-      local lsp_attached = false
+      local lsp_attached_and_support_formatting = false
       for _, client in pairs(vim.lsp.get_active_clients()) do
-        if client.attached_buffers[bufnr] then
-          lsp_attached = true
+        if client.attached_buffers[bufnr] and client.supports_method("textDocument/formatting") then
+          lsp_attached_and_support_formatting = true
           break
         end
       end
 
-      -- Use LSP formatting for other filetypes if available
-      if lsp_attached then
+      -- For other filetypes, use LSP formatting if available
+      if lsp_attached_and_support_formatting then
         vim.lsp.buf.format({
           bufnr = bufnr,
           timeout_ms = 1000
