@@ -37,6 +37,8 @@ return {
       nmap('<leader>cr', vim.lsp.buf.rename, '[C]ode [R]ename')
       nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
+      nmap('<leader>lr', '<cmd>LspRestart<CR>', '[R]estart')
+
       nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
       nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
       nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
