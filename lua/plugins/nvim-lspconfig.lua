@@ -87,7 +87,8 @@ return {
       csharp_ls = {}, -- requires `dotnet-sdk` to be installed
       pyright = {},
       angularls = {},
-      cssls = {} -- requires `npm i -g vscode-langservers-extracted` to be installed
+      cssls = {},  -- requires `npm i -g vscode-langservers-extracted` to be installed
+      eslint = {}, -- requires `npm i -g vscode-langservers-extracted` to be installed
     }
 
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
