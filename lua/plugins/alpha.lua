@@ -29,6 +29,7 @@ return {
       dashboard.button('e', '󰈙  New file', ':ene <BAR> startinsert <CR>'),
       dashboard.button('r', '  Recently used files', ':Telescope oldfiles <CR>'),
       dashboard.button('n', '󰏫  Notes', ':e ~/notes.md<CR>'),
+      dashboard.button('w', '  Worklog', ':e ~/worklog.md<CR>'),
       dashboard.button('c', '  Configuration', ':e ~/.config/nvim<CR>'),
       dashboard.button('q', '  Quit Neovim', ':qa<CR>'),
     }
