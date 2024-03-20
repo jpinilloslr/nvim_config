@@ -6,6 +6,7 @@ return {
   },
   opts = {
     name = 'GLaDOS',
+    auto_follow_cursor = false,
     window = {
       layout = 'float',
       width = 0.8,

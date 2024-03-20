@@ -48,6 +48,12 @@ sudo apt install ripgrep
 sudo apt install wl-clipboard
 ```
 
+**Install xclip for X11 clipboard synchronization.**
+
+```bash
+sudo apt install xclip
+```
+
 **Install Nerd Fonts for icons**
 
 ```bash
