@@ -13,13 +13,5 @@ return {
       height = 0.7,
       title = 'GLaDOS',
     },
-    mappings = {
-      close = 'q',
-      reset = '<C-r>',
-      complete = '<Tab>',
-      submit_prompt = '<CR>',
-      accept_diff = '<C-y>',
-      show_diff = '<C-d>',
-    },
   },
 }
