@@ -35,7 +35,7 @@ return {
     }
 
     local function footer()
-      return 'Practice mindful coding'
+      return 'Chop wood, carry water'
     end
 
     dashboard.section.footer.val = footer()
