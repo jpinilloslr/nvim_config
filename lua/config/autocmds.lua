@@ -14,7 +14,7 @@ vim.cmd([[
   autocmd BufWritePre *.py if luaeval('_G.autoformat_enabled') | Neoformat | endif
   autocmd BufWritePre *.js,*.ts,*.mjs,*.mts,*.jsx,*.tsx if luaeval('_G.autoformat_enabled') | Neoformat | endif
   autocmd BufWritePre *.css,*.scss if luaeval('_G.autoformat_enabled') | Neoformat | endif
-  autocmd BufWritePre *.html,*.htm if luaeval('_G.autoformat_enabled') | Neoformat | endif
+  autocmd BufWritePre *.html,*.htm,*.md if luaeval('_G.autoformat_enabled') | Neoformat | endif
   autocmd BufWritePre *.json if luaeval('_G.autoformat_enabled') | Neoformat | endif
   autocmd BufWritePre *.yml,*.yaml if luaeval('_G.autoformat_enabled') | Neoformat | endif
   autocmd BufWritePre *.graphql,*.gql if luaeval('_G.autoformat_enabled') | Neoformat | endif
