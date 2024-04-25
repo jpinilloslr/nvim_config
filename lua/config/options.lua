@@ -35,7 +35,9 @@ vim.opt.expandtab = true
 local langs_indent_config = {
   python = { tabstop = 4, shiftwidth = 4, expandtab = true },
   javascript = { tabstop = 2, shiftwidth = 2, expandtab = true },
+  javascriptreact = { tabstop = 2, shiftwidth = 2, expandtab = true },
   typescript = { tabstop = 2, shiftwidth = 2, expandtab = true },
+  typescriptreact = { tabstop = 2, shiftwidth = 2, expandtab = true },
   lua = { tabstop = 2, shiftwidth = 2, expandtab = true },
   go = { tabstop = 4, shiftwidth = 4, expandtab = false },
   rust = { tabstop = 4, shiftwidth = 4, expandtab = true },
@@ -44,6 +46,8 @@ local langs_indent_config = {
   java = { tabstop = 4, shiftwidth = 4, expandtab = true },
   html = { tabstop = 2, shiftwidth = 2, expandtab = true },
   css = { tabstop = 2, shiftwidth = 2, expandtab = true },
+  scss = { tabstop = 2, shiftwidth = 2, expandtab = true },
+  sass = { tabstop = 2, shiftwidth = 2, expandtab = true },
   yaml = { tabstop = 2, shiftwidth = 2, expandtab = true },
   json = { tabstop = 2, shiftwidth = 2, expandtab = true },
 }
