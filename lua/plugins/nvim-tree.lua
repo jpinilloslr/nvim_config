@@ -10,6 +10,9 @@ return {
       update_focused_file = {
         enable = true,
       },
+      view = {
+        width = '20%',
+      },
       actions = {
         open_file = {
           quit_on_open = true
