@@ -10,6 +10,16 @@ end
 vim.api.nvim_set_keymap('n', '<Leader>tf', ':lua toggle_autoformat()<CR>',
   { noremap = true, silent = true, desc = '[T]oogle Auto[f]ormat' })
 
+-- Neoformat configuration for SCSS files with prettier
+-- Neoformat is using CSS parser by defualt for SCSS files,
+-- so we specify the parser explicitly.
+vim.g.neoformat_enabled_scss = {'prettier'}
+vim.g.neoformat_scss_prettier = {
+    exe = 'prettier',
+    args = {'--parser', 'scss'},
+    stdin = 1
+}
+
 vim.cmd([[
   autocmd BufWritePre *.py if luaeval('_G.autoformat_enabled') | Neoformat | endif
   autocmd BufWritePre *.js,*.ts,*.mjs,*.mts,*.jsx,*.tsx if luaeval('_G.autoformat_enabled') | Neoformat | endif
