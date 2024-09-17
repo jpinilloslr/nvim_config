@@ -1,9 +1,10 @@
 return {
   'nvim-tree/nvim-tree.lua',
-  version = '*',
+  commit = '45a93d9',
   lazy = false,
   dependencies = {
     'nvim-tree/nvim-web-devicons',
+    commit = '9154484'
   },
   config = function()
     require('nvim-tree').setup {

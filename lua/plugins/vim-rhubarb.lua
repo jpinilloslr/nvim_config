@@ -1,3 +1,4 @@
 return {
-  'tpope/vim-rhubarb'
+  'tpope/vim-rhubarb',
+  commit = 'ee69335'
 }

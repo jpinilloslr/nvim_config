@@ -1,3 +1,4 @@
 return {
-  'tpope/vim-surround'
+  'tpope/vim-surround',
+  commit = '3d188ed'
 }

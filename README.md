@@ -18,7 +18,7 @@ rm -rf ~/.config/nvim
 ## Install Nvim
 
 ```bash
-VERSION=0.9.4
+VERSION=0.9.5
 curl -L https://github.com/neovim/neovim/releases/download/v$VERSION/nvim-linux64.tar.gz -o nvim-linux64.tar.gz
 tar xzvf nvim-linux64.tar.gz
 rm ./nvim-linux64.tar.gz

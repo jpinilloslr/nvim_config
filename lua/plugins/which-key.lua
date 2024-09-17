@@ -1,8 +1,15 @@
 return {
   'folke/which-key.nvim',
+  commit = 'bfec3d6',
   dependencies = {
-    'nvim-tree/nvim-web-devicons',
-    'echasnovski/mini.nvim'
+    {
+      'nvim-tree/nvim-web-devicons',
+      commit = '9154484'
+    },
+    {
+      'echasnovski/mini.nvim',
+      commit = 'e50cf9d'
+    }
   },
   config = function()
     local wk = require('which-key')
@@ -19,6 +26,6 @@ return {
       { '<leader>T',  group = '[T]ests' },
       { '<leader>w',  group = 'S[w]ap' },
     }
-  )
+    )
   end
 }
