@@ -31,7 +31,7 @@ ln -s ~/.local/nvim/bin/nvim /usr/local/bin/nvim
 ## Install config
 
 ```bash
-git clone https://github.com/jpinilloslr/nvim_config.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone git@github.com:jpinilloslr/nvim_config.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
 ## Additional tools
