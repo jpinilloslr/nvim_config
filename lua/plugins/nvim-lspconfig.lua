@@ -13,6 +13,11 @@ return {
       'williamboman/mason-lspconfig.nvim',
       commit = '25c1185',
     },
+    -- Automatically install formatters and other tools
+    {
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      commit = 'c5e07b8',
+    },
 
     -- Useful status updates for LSP
     {
@@ -130,5 +135,15 @@ return {
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
+
+    -- Ensure other tools are installed
+    require('mason-tool-installer').setup({
+      ensure_installed = {
+        'prettier',
+        'black',
+        'isort',
+      },
+      run_on_start = true,
+    })
   end
 }
