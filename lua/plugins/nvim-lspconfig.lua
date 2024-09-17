@@ -2,7 +2,7 @@ return {
   'neovim/nvim-lspconfig',
   tag = 'v1.0.0',
   -- Install all required external dependencies
-  build = { 'npm install -g vscode-langservers-extracted' },
+  build = { 'npm install -g vscode-langservers-extracted@4.10.0' },
   dependencies = {
     -- Automatically install LSPs to stdpath for neovim
     {
