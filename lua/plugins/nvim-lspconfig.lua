@@ -87,7 +87,7 @@ return {
     local servers = {
       rust_analyzer = {},
       gopls = {},
-      tsserver = {},
+      ts_ls = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       lua_ls = {
         Lua = {
