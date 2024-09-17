@@ -1,10 +1,12 @@
 return {
   'nvim-telescope/telescope.nvim',
-  branch = '0.1.x',
+  branch = '0.1.8',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    commit = 'f4faa5a',
     {
       'nvim-telescope/telescope-fzf-native.nvim',
+      commit = 'cf48d4d',
       build = 'make',
       cond = function()
         return vim.fn.executable 'make' == 1

@@ -1,15 +1,23 @@
 return {
   'neovim/nvim-lspconfig',
+  tag = 'v1.0.0',
   -- Install all required external dependencies
   build = { 'npm install -g vscode-langservers-extracted' },
   dependencies = {
     -- Automatically install LSPs to stdpath for neovim
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
+    {
+      'williamboman/mason.nvim',
+      commit = 'e2f7f90',
+    },
+    {
+      'williamboman/mason-lspconfig.nvim',
+      commit = '25c1185',
+    },
 
     -- Useful status updates for LSP
     {
       'j-hui/fidget.nvim',
+      commit = 'd855eed',
       opts = {
         notification = {
           window = {
@@ -20,7 +28,10 @@ return {
     },
 
     -- Provides additional settings and completions for Neovim's Lua API
-    'folke/neodev.nvim',
+    {
+      'folke/neodev.nvim',
+      commit = '46aa467',
+    }
   },
   config = function()
     -- [[ Configure LSP ]]

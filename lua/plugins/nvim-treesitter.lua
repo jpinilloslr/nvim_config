@@ -1,7 +1,9 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  commit = '4d94c24',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    commit = 'bf8d2ad',
   },
   build = ':TSUpdate',
   config = function()

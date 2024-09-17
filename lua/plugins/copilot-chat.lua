@@ -1,8 +1,11 @@
 return {
-  "CopilotC-Nvim/CopilotChat.nvim",
-  branch = "canary",
+  'CopilotC-Nvim/CopilotChat.nvim',
+  tag = 'v2.14.1',
   dependencies = {
-    { "nvim-lua/plenary.nvim" },
+    { 
+      'nvim-lua/plenary.nvim',
+      commit = 'f4faa5a',
+    },
   },
   opts = {
     question_header = '## Me ',
