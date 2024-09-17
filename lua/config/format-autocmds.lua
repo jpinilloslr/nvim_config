@@ -19,6 +19,7 @@ vim.g.neoformat_scss_prettier = {
     args = {'--parser', 'scss'},
     stdin = 1
 }
+vim.g.neoformat_enabled_python = {'black'}
 
 vim.cmd([[
   autocmd BufWritePre *.py if luaeval('_G.autoformat_enabled') | Neoformat | endif
@@ -30,4 +31,3 @@ vim.cmd([[
   autocmd BufWritePre *.yml,*.yaml if luaeval('_G.autoformat_enabled') | Neoformat | endif
   autocmd BufWritePre *.graphql,*.gql if luaeval('_G.autoformat_enabled') | Neoformat | endif
 ]])
-
